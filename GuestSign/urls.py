@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path
 from django.conf.urls import url
 from sign import views
+from django.conf.urls import url,include
 
 urlpatterns = [
     url(r'^$',views.index),
@@ -29,5 +30,6 @@ urlpatterns = [
     url(r'^guest_manage/$',views.guest_manage),
     url(r'^sign_index/(?P<eid>[0-9])+/$',views.sign_index),
     url(r'^sign_index_action/(?P<eid>[0-9]+)/$',views.sign_index_action),
-    url(r'^logout/$',views.logout)
+    url(r'^logout/$',views.logout),
+    url(r'^api/',include('sign.urls',namespace='sign'))
 ]
